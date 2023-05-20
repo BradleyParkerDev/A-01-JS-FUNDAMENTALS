@@ -7,11 +7,27 @@
 const x = 6
 
 // 1. Write a function that takes 2 numbers as arguments and returns the sum of both numbers and the variable "x" using without using arrow functions.
+function add(num1, num2) {
+  return num1 + num2 + x;
 
+}
+console.log(add(1,2))
 // 2. Write a function that takes 2 numbers as arguments and returns the sum of both numbers and the variable "x", using arrow functions.
+const addArrow = (num1, num2) =>{
+  return num1 + num2 + x;
+}
+console.log(addArrow(1,2))
 
 // 3. Write a function that returns another function. (use arrow functions please)
 
+const greeting = (func) =>{
+  return `Hello, ${func}.`
+}
+const name = (name) =>{
+  return name;
+}
+
+console.log(greeting(name('Bradley')))
 
 // 4. Given the following code explain why the function that returns from getFunction still has access to variable "y" even when "y" is not a global variable.
 
@@ -25,6 +41,10 @@ const getFunction = () => {
 };
 
 console.log(getFunction()(2))
+//Answer:
+//insideFunc() has access to y because it is enclosed inside getFunction, with y.
+
+
 
 // 5. write a function that takes "couldThrowError()" as a callback argument.
 // within that function call "couldThrowError" and and log the result to the console.
@@ -32,15 +52,22 @@ console.log(getFunction()(2))
 // If there is an error log "sorry, there was an error" to the console.
 
 const couldThrowError = () => {
-  
   if(Math.ceil(Math.random() * 2) < 2){
     throw new Error("Error was thrown");
   }
-  
   return 'success'
 }
 
+const  callBackFunc = (func) => {
+  try {
+    return func
+  }catch (e) {
+    console.log("sorry, there was an error")
+  }
+}
 
+
+console.log(callBackFunc(couldThrowError()))
 ////////////////////////////////////////////////////////////
 //// Handling data:
 ////////////////////////////////////////////////////////////
