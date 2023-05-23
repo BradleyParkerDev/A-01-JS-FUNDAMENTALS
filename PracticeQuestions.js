@@ -66,7 +66,6 @@ const  callBackFunc = (func) => {
   }
 }
 
-// I got success to show, but the error is not showing.
 console.log(callBackFunc(couldThrowError())) 
 ////////////////////////////////////////////////////////////
 //// Handling data:
